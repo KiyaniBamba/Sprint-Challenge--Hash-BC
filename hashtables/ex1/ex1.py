@@ -8,12 +8,14 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
-
-    """
-    YOUR CODE HERE
-    """
-
-    return None
+    for i in weights[0:length-1]:
+        zeroth = weights.index(i)
+        for j in weights[1:]:
+            first = weights.index(j)
+            if i + j == limit:
+                answer = (zeroth, first)
+            else:
+                answer = None
 
 
 def print_answer(answer):
