@@ -23,12 +23,23 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 ## Interview Questions
 
 Explain in detail the workings of a dynamic array:
+
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+The time complexity is linear, O(n).
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
-Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+It's not possible to change the size of the array. But, we can create a new array that's larger, copy the values we want to keep, transfer them into the new array and delete the original array. The array is dynamically modified at runtime.  
+Dynamic array are costly in term of time complexity.
+
+* Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
+A blockchain is composed of two vital data structure: pointers and linked list. Each linkes list is a block and the chain is a sequence of blocks in a specific order. 
  
-Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+* Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+
 
 ## Project Set Up
 
