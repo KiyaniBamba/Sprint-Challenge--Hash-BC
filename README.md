@@ -39,7 +39,7 @@ A blockchain is composed of two vital data structure: pointers and linked list. 
  
 * Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
 
-
+this algorithm is used to confirm transactions and produce new blocks to the chain.
 
 ## Project Set Up
 

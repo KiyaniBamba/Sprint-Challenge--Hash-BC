@@ -12,7 +12,7 @@ def get_indices_of_item_weights(weights, length, limit):
         zeroth = weights.index(i)
         for j in weights[1:]:
             first = weights.index(j)
-            if i + j == limit:
+            if  hash_table_retrieve(ht, i + j) == limit:
                 answer = (zeroth, first)
             else:
                 answer = None

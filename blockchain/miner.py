@@ -20,12 +20,14 @@ def proof_of_work(last_proof):
     - Use the same method to generate SHA-256 hashes as the examples in class
     """
 
+    previous_hash = hashlib.sha256(f'{last_proof}'.encode()).hexdigest()
     start = timer()
 
     print("Searching for next proof")
     proof = 0
     #  TODO: Your code here
-
+    while not valid_proof(previous_hash, proof):
+        proof += 3126
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
@@ -35,12 +37,28 @@ def valid_proof(last_hash, proof):
     Validates the Proof:  Multi-ouroborus:  Do the last six characters of
     the hash of the last proof match the first six characters of the hash
     of the new proof?
-
     IE:  last_hash: ...AE9123456, new hash 123456E88...
     """
+    #TODO 
+    current_hash = hashlib.sha256(f'{proof}'.encode()).hexdigest()
+    return last_hash[-6:] == current_hash[:6]
 
-    # TODO: Your code here!
-    pass
+   # https://lambda-coin-test-1.herokuapp.com/api
+   # https://lambda-coin.herokuapp.com/api
+if __name__ == '__main__':
+    # What node are we interacting with?
+    if len(sys.argv) > 1:
+        node = sys.argv[1]
+    else:
+        node = "https://lambda-coin.herokuapp.com/api"
+
+    coins_mined = 0
+
+    # Load or create ID
+    f = open("kiyani.txt", "r")
+    id = f.read()
+    print("ID is", id)
+    f.close()
 
 
 if __name__ == '__main__':
@@ -53,7 +71,7 @@ if __name__ == '__main__':
     coins_mined = 0
 
     # Load or create ID
-    f = open("my_id.txt", "r")
+    f = open("kiyani.txt", "r")
     id = f.read()
     print("ID is", id)
     f.close()
